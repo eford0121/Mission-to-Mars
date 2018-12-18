@@ -28,7 +28,7 @@ def scrape():
     news_p = soup.find("div",class_="article_teaser_body").text
     #enter into mars_data
     mars_data["news story"] = (news_title,news_p)
-    #Print values
+    #Print valuesp
     print(news_title)
     print(news_p)
 
@@ -83,6 +83,8 @@ def scrape():
                       1: "Value"})
     #Make an HTML object
     mars_html = renamed_table.to_html()
+    #removed /n
+    mars_html = mars_html.replace('\n', ' ')
     #save to mars_data
     mars_data["Mars Facts"] = (mars_html)
 
