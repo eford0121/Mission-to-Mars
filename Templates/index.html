@@ -14,13 +14,17 @@
       <div class="jumbotron text-center">
         <h1>Mission to Mars</h1>
         <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
-      </div>
-      <img src="{{ vacation.sloth_img }}" alt="Sloth">
-      <h2>The typical weather in Costa Rica is:</h2>
-      <h3>Max Temp: {{ vacation.max_temp }}</h3>
-      <h3>Min Temp: {{ vacation.min_temp }}</h3>
-    </div>
-    </div>
+        </div>
+        <div class = "row">
+            <div class ="card" style="width: 20rem;">
+              <div class = "card-body">
+                <h2 class class="card-title">Latest Mars News</h2>
+                <h3 class = "card-subtitle mb-2 text-muted">{{mars.news-story}}</h3>
+
+            </div>
+            </div>
+
+        </div>
   </body>
   
   </html>

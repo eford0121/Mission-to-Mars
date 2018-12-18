@@ -9,7 +9,7 @@ from splinter.exceptions import ElementDoesNotExist
 def scrape():
     #Executable path
     executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     #dictionary to store data
     mars_data = {}
