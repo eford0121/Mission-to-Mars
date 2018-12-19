@@ -98,8 +98,9 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     cerberus_title = soup.find("h2", class_='title').text
-    browser.click_link_by_partial_href('http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg')
+    browser.click_link_by_partial_text('sample')
     cerberus_url = (str(browser.url))
+    f_cerberus_url = f'{cerberus_url}.tif/full.jpg'
     #back to main page
     url_5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url_5)
@@ -110,6 +111,7 @@ def scrape():
     schiaparelli_title = soup.find("h2", class_='title').text
     browser.click_link_by_partial_href('http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg')
     schiaparelli_url = (str(browser.url))
+    f_schiaparelli_url = f'{schiaparelli_url}.tif/full.jpg'
     #back to main page
     url_5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url_5)
@@ -120,6 +122,8 @@ def scrape():
     syrtis_title = soup.find("h2", class_='title').text
     browser.click_link_by_partial_href('http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg')
     syrtis_url = (str(browser.url))
+    f_syrtis_url = f'{syrtis_url}.tif/full.jpg'
+
     #back to main page
     url_5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url_5)
@@ -130,13 +134,15 @@ def scrape():
     valles_title = soup.find("h2", class_='title').text
     browser.click_link_by_partial_href('http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg')
     valles_url = (str(browser.url))
+    f_valles_url = f'{valles_url}.tif/full.jpg'
+
 
     #hemisphere_image_urls
     hemisphere_image_urls=[
-    {"title" : cerberus_title, "img_url": cerberus_url},
-    {"title" : schiaparelli_title, "img_url": schiaparelli_url},
-    {"title" :syrtis_title, "img_url": syrtis_url},
-    {"title" : valles_title, "img_url": valles_url}]
+    {"title" : cerberus_title, "img_url": f_cerberus_url},
+    {"title" : schiaparelli_title, "img_url": f_schiaparelli_url},
+    {"title" :syrtis_title, "img_url": f_syrtis_url},
+    {"title" : valles_title, "img_url": f_valles_url}]
 
     #put into mars_data
     mars_data["mars_hemispheres"] = (hemisphere_image_urls)
