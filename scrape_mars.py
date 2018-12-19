@@ -99,9 +99,12 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
     cerberus_title = soup.find("h2", class_='title').text
     time.sleep(2)
-    browser.click_link_by_partial_href('http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg')
-    cerberus_url = (str(browser.url))
-    f_cerberus_url =f'{cerberus_url}.tif/full.jpg'
+    download = browser.find_link_by_partial_text('Sample').first
+    cerberus_url = download['href']
+
+
+    
+    
     
     #back to main page
     url_5 = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -141,7 +144,7 @@ def scrape():
 
     #hemisphere_image_urls
     hemisphere_image_urls=[
-    {"title" : cerberus_title, "img_url": f_cerberus_url},
+    {"title" : cerberus_title, "img_url": cerberus_url},
     {"title" : schiaparelli_title, "img_url": schiaparelli_url},
     {"title" :syrtis_title, "img_url": syrtis_url},
     {"title" : valles_title, "img_url": valles_url}]
