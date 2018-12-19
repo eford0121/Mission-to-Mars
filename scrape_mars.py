@@ -27,7 +27,8 @@ def scrape():
     news_title = soup.find('div', class_='content_title').text
     news_p = soup.find("div",class_="article_teaser_body").text
     #enter into mars_data
-    mars_data["news story"] = (news_title,news_p)
+    mars_data["news_title"] = (news_title)
+    mars_data["news_paragraph"] = (news_p)
     #Print valuesp
     print(news_title)
     print(news_p)
@@ -52,7 +53,7 @@ def scrape():
     #Put it all together
     featured_image_url = f'https://www.jpl.nasa.gov{image}'
     #enter into mars_data 
-    mars_data["featured image"] = (featured_image_url)
+    mars_data["featured_image"] = (featured_image_url)
     #print url
     print(featured_image_url)
 
@@ -66,7 +67,7 @@ def scrape():
     #scraping what I need
     mars_weather= soup.find("p", class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text").text
     #enter into mars_data
-    mars_data["mars weather"] = (mars_weather)
+    mars_data["mars_weather"] = (mars_weather)
     #print weather
     print(mars_weather)
 
@@ -86,7 +87,7 @@ def scrape():
     #removed /n
     mars_html = mars_html.replace('\n', ' ')
     #save to mars_data
-    mars_data["Mars Facts"] = (mars_html)
+    mars_data["mars_facts"] = (mars_html)
 
     ############ Mars Hemispheres ##########
     #url_5
@@ -138,12 +139,11 @@ def scrape():
     {"title" : valles_title, "img_url": valles_url}]
 
     #put into mars_data
-    mars_data["Mars Hemispheres"] = (hemisphere_image_urls)
+    mars_data["mars_hemispheres"] = (hemisphere_image_urls)
 
 
-    return(mars_data)
+    return mars_data
 
-print(scrape())
 
 
 

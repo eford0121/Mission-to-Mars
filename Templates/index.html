@@ -19,24 +19,39 @@
             <div class ="card" style="width: 20rem;">
               <div class = "card-body">
                 <h2 class class="card-title">Latest Mars News</h2>
-                <h3 class = "card-subtitle mb-2 text-muted">{{mars_info.news_title}}</h3>
-                <p>{{mars_info.news_p</p>
+                <h3 class = "card-subtitle mb-2 text-muted">{{mars_data.news_title}}</h3>
+                <p>{{mars_data.news_paragraph}}</p>
 
-                  <div class="container">
-                    <div class="row">
-                        <!-- Left Image-->
-                        <div class="col-lg-8 col-md-8 col-sm-12">
-                            <h3>Featured Mars Image</h3>
-                            <img src="{{ mars_info.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
+            <div class="container">
+              <div class="row">
+                        
+                 <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h3>Featured Mars Image</h3>
+                      <img src="{{ mars_data.featured_image}}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
+                  </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+
+            <div class="card" style="width: 18rem;">
+                        <div class="card-body text-white bg-dark">
+                            <h6 class="card-title">Current Weather on Mars</h6>
+                            <p class="card-text">{{ mars_data.mars_weather}}</p>
                         </div>
+                  
+                  <br>
 
-
-
-
-            </div>
-            </div>
-
-        </div>
+                  <h3>Mars Facts</h3>
+                  <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
+                      {{ mars_data.mars_facts}}
+                  </div>
+              </div> <!-- col4 -->
+          </div><!-- Row -->
+      </div> 
+      </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    
   </body>
   
   </html>
